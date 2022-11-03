@@ -12,6 +12,6 @@ var local embed.FS
 
 func main() {
 	e := echo.New()
-	e.GET("/", echo.WrapHandler(http.FileServer(http.FS(local))))
+	e.GET("/*", echo.WrapHandler(http.FileServer(http.FS(local))))
 	e.Logger.Fatal(e.Start(":8989"))
 }
